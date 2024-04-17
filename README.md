@@ -6,9 +6,8 @@ This is a portfolio website built using React. It showcases your projects, skill
 
 - Responsive design
 - Project showcase with descriptions and links
-- Skills section highlighting your technical abilities
-- Experience section to showcase your work history
-- Contact information and social media links
+- A good about me section
+- Contact form and github links
 
 ## Installation
 
