@@ -8,8 +8,8 @@ console.log(env.MAILJET_API, env.MAILJET_SECRET);
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
-    'process.env.MAILJET_API_KEY': JSON.stringify(env.MAILJET_API),
-    'process.env.MAILJET_SECRET_KEY': JSON.stringify(env.MAILJET_SECRET),
+    'process.env.MAILJET_API': JSON.stringify(env.MAILJET_API),
+    'process.env.MAILJET_SECRET': JSON.stringify(env.MAILJET_SECRET),
   },
   plugins: [react(), express('server/server.ts')],
   server: {

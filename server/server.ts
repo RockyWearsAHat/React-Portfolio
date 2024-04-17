@@ -1,5 +1,11 @@
 import express, { Request, Response } from 'express';
 import mailjet from 'node-mailjet';
+import dotenv from 'dotenv';
+import path from 'path';
+console.log(path.join(process.cwd(), '.env'));
+dotenv.config({
+  path: path.join(process.cwd(), '.env'),
+});
 
 //EXPORTING EXPRESS FUNCTION TO BE USED IN VITE CONFIG, THIS IS NECESSARY FOR THIS SETUP
 export const app = express();
@@ -8,8 +14,11 @@ app.use(express.json());
 const port = 3000;
 
 app.post('/api/contact', async (req: Request, res: Response) => {
-  if (!process.env.MAILJET_API_KEY || !process.env.MAILJET_SECRET_KEY)
+  console.log(process.env.MAILJET_API, process.env.MAILJET_SECRET);
+
+  if (!process.env.MAILJET_API || !process.env.MAILJET_SECRET) {
     return res.json({ ok: false, message: 'Message failed to send' });
+  }
 
   const { name, email, message } = req.body;
 
@@ -25,7 +34,7 @@ app.post('/api/contact', async (req: Request, res: Response) => {
   });
 
   const mailRes = await mailjet
-    .apiConnect(process.env.MAILJET_API_KEY, process.env.MAILJET_SECRET_KEY)
+    .apiConnect(process.env.MAILJET_API, process.env.MAILJET_SECRET)
     .post('send', { version: 'v3.1' })
     .request(data);
 

@@ -26,11 +26,13 @@ const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     body: JSON.stringify(data),
   });
 
-  if (res.ok) {
+  const resData = await res.json();
+
+  if (resData.ok) {
     alert('Message sent');
     form.reset();
   } else {
-    alert('Message failed to send');
+    alert(resData.message);
   }
 };
 
