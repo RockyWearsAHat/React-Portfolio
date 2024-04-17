@@ -45,10 +45,11 @@ if (!process.env['VITE']) {
     res.sendFile('index.html', { root: frontendFiles });
   });
 
-  app.listen(process.env['PORT'] ? process.env['PORT'] : port);
-  console.log(
-    !process.env['PORT']
-      ? `Server started on http://localhost:${port}` //FOR DEV AND BUILD
-      : 'Server is running on host platform' //FOR HOSTING PLATFORM
-  );
+  app.listen(process.env.PORT || 3000, () => {
+    console.log(
+      !process.env['PORT']
+        ? `Server started on http://localhost:${port}` //FOR DEV AND BUILD
+        : 'Server is running on host platform' //FOR HOSTING PLATFORM
+    );
+  });
 }
