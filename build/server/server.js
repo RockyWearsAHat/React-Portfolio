@@ -11,7 +11,7 @@ dotenv.config({
 //EXPORTING EXPRESS FUNCTION TO BE USED IN VITE CONFIG, THIS IS NECESSARY FOR THIS SETUP
 const app = express();
 app.use(express.json());
-// const port = 3000;
+const port = 3000;
 app.post('/api/contact', async (req, res) => {
     console.log(process.env.MAILJET_API, process.env.MAILJET_SECRET);
     if (!process.env.MAILJET_API || !process.env.MAILJET_SECRET) {
@@ -38,7 +38,19 @@ app.post('/api/contact', async (req, res) => {
     return res.json({ ok: true, message: 'Message sent' });
 });
 //IF NOT VITE, HAVE EXPRESS SERVE STATIC FILES AND OPEN SERVER, VITE WILL OTHERWISE DO THIS
-if (!process.env['VITE'] && !process.env['NETLIFY']) ;
+if (!process.env['VITE'] && !process.env['NETLIFY']) {
+    const frontendFiles = process.cwd() + '/build/';
+    app.use(express.static(frontendFiles));
+    app.get('/*', (_req, res) => {
+        res.sendFile('index.html', { root: frontendFiles });
+    });
+    app.listen(process.env.PORT || 3000, () => {
+        console.log(!process.env['PORT']
+            ? `Server started on http://localhost:${port}` //FOR DEV AND BUILD
+            : 'Server is running on host platform' //FOR HOSTING PLATFORM
+        );
+    });
+}
 const handler = serverless(app);
 
 export { app, handler };
