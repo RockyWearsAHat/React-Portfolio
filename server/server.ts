@@ -1,4 +1,4 @@
-import express, { Request, Response, Router } from 'express';
+import express, { Request, Response } from 'express';
 import mailjet from 'node-mailjet';
 import dotenv from 'dotenv';
 import path from 'path';
