@@ -65,9 +65,4 @@ if (!process.env['VITE']) {
   });
 }
 
-let serverlessApp: any = null;
-if (process.env.NETLIFY) {
-  serverlessApp = serverless(app);
-}
-
-export const handler = serverlessApp;
+export const handler = serverless(app);
