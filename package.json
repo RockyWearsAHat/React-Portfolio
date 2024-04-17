@@ -8,7 +8,7 @@
     "devTest": "vite",
     "removeBuild": "rm -rf build",
     "rollup": "rollup -c rollup.config.mjs",
-    "build": "npm run removeBuild && tsc && vite build && npm run rollup && echo '/* /index.html 200\n/api/contact /api/contact 200' | cat >build/_redirects ",
+    "build": "npm run removeBuild && tsc && vite build && npm run rollup && echo '/* /index.html 200' | cat >build/_redirects ",
     "start": "node build/server/server.js",
     "buildnstart": "npm run build && npm run start",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -23,7 +23,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -42,6 +43,7 @@
     "glob": "^10.3.10",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
+    "rollup-plugin-copy": "^3.5.0",
     "tailwindcss": "^3.4.3",
     "tailwindcss-cli": "^0.1.2",
     "tslib": "^2.6.2",

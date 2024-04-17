@@ -7,6 +7,8 @@ dotenv.config({
   path: path.join(process.cwd(), '.env'),
 });
 
+import serverless from 'serverless-http';
+
 //EXPORTING EXPRESS FUNCTION TO BE USED IN VITE CONFIG, THIS IS NECESSARY FOR THIS SETUP
 export const app = express();
 app.use(express.json());
@@ -62,3 +64,10 @@ if (!process.env['VITE']) {
     );
   });
 }
+
+let serverlessApp: any = null;
+if (process.env.NETLIFY) {
+  serverlessApp = serverless(app);
+}
+
+export const handler = serverlessApp;

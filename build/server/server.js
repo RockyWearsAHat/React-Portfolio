@@ -2,6 +2,7 @@ import express from 'express';
 import mailjet from 'node-mailjet';
 import dotenv from 'dotenv';
 import path from 'path';
+import serverless from 'serverless-http';
 
 console.log(path.join(process.cwd(), '.env'));
 dotenv.config({
@@ -50,6 +51,11 @@ if (!process.env['VITE']) {
         );
     });
 }
+let serverlessApp = null;
+if (process.env.NETLIFY) {
+    serverlessApp = serverless(app);
+}
+const handler = serverlessApp;
 
-export { app };
+export { app, handler };
 //# sourceMappingURL=server.js.map
