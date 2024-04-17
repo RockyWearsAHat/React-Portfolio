@@ -50,18 +50,18 @@ app.post('/api/contact', async (req: Request, res: Response) => {
 
 //IF NOT VITE, HAVE EXPRESS SERVE STATIC FILES AND OPEN SERVER, VITE WILL OTHERWISE DO THIS
 if (!process.env['VITE'] && !process.env['NETLIFY']) {
-  // const frontendFiles = process.cwd() + '/build/';
-  // app.use(express.static(frontendFiles));
-  // app.get('/*', (_req, res) => {
-  //   res.sendFile('index.html', { root: frontendFiles });
-  // });
-  // app.listen(process.env.PORT || 3000, () => {
-  //   console.log(
-  //     !process.env['PORT']
-  //       ? `Server started on http://localhost:${port}` //FOR DEV AND BUILD
-  //       : 'Server is running on host platform' //FOR HOSTING PLATFORM
-  //   );
-  // });
+  const frontendFiles = process.cwd() + '/build/';
+  app.use(express.static(frontendFiles));
+  app.get('/*', (_req, res) => {
+    res.sendFile('index.html', { root: frontendFiles });
+  });
+  app.listen(process.env.PORT || 3000, () => {
+    console.log(
+      !process.env['PORT']
+        ? `Server started on http://localhost:${port}` //FOR DEV AND BUILD
+        : 'Server is running on host platform' //FOR HOSTING PLATFORM
+    );
+  });
 }
 
 export const handler = serverless(app);
