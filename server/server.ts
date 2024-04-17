@@ -11,12 +11,11 @@ import serverless from 'serverless-http';
 
 //EXPORTING EXPRESS FUNCTION TO BE USED IN VITE CONFIG, THIS IS NECESSARY FOR THIS SETUP
 export const app = express();
-const router = Router();
 app.use(express.json());
 
 const port = 3000;
 
-router.post('/contact', async (req: Request, res: Response) => {
+app.post('/api/contact', async (req: Request, res: Response) => {
   console.log(process.env.MAILJET_API, process.env.MAILJET_SECRET);
 
   if (!process.env.MAILJET_API || !process.env.MAILJET_SECRET) {
@@ -48,10 +47,8 @@ router.post('/contact', async (req: Request, res: Response) => {
   return res.json({ ok: true, message: 'Message sent' });
 });
 
-app.use('/api', router);
-
 //IF NOT VITE, HAVE EXPRESS SERVE STATIC FILES AND OPEN SERVER, VITE WILL OTHERWISE DO THIS
-if (!process.env['VITE']) {
+if (!process.env['VITE'] && !process.env['NETLIFY']) {
   const frontendFiles = process.cwd() + '/build/';
   app.use(express.static(frontendFiles));
 
