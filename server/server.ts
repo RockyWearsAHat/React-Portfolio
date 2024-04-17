@@ -49,7 +49,7 @@ app.post('/api/contact', async (req: Request, res: Response) => {
 });
 
 //IF NOT VITE, HAVE EXPRESS SERVE STATIC FILES AND OPEN SERVER, VITE WILL OTHERWISE DO THIS
-if (!process.env['VITE'] && !process.env['NETLIFY']) {
+if (!process.env['VITE']) {
   const frontendFiles = process.cwd() + '/build/';
   app.use(express.static(frontendFiles));
   app.get('/*', (_req, res) => {
