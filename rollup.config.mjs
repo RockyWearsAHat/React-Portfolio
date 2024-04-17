@@ -35,7 +35,7 @@ export default {
     resolve({ preferBuiltins: true }),
     commonjs({ ignoreDynamicRequires: true, ignore: builtinModules }),
     copy({
-      targets: [{ src: 'netlify.toml', dest: 'build' }],
+      targets: [{ src: '_redirects ', dest: 'build' }],
     }),
   ],
 };
