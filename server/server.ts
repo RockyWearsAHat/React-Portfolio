@@ -14,7 +14,7 @@ export const app = express();
 
 app.use(express.json());
 
-const port = 3000;
+// const port = 3000;
 
 app.post('/api/contact', async (req: Request, res: Response) => {
   console.log(process.env.MAILJET_API, process.env.MAILJET_SECRET);
