@@ -1,0 +1,50 @@
+{
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --raw \"vite\" \"npm run tailwind\"",
+    "devTest": "vite",
+    "removeBuild": "rm -rf build",
+    "rollup": "rollup -c rollup.config.mjs",
+    "build": "npm run removeBuild && tsc && vite build && npm run rollup",
+    "start": "node build/server/server.js",
+    "buildnstart": "npm run build && npm run start",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "tailwind": "tailwindcss -i client/css/input.css -o client/css/tailwind.css --watch"
+  },
+  "dependencies": {
+    "browserslist": "^4.23.0",
+    "caniuse-lite": "^1.0.30001610",
+    "express": "^4.18.3",
+    "node-mailjet": "^6.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.1.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/express": "^4.17.21",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "glob": "^10.3.10",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "tailwindcss": "^3.4.3",
+    "tailwindcss-cli": "^0.1.2",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.6"
+  }
+}
