@@ -8,7 +8,7 @@
     "devTest": "vite",
     "removeBuild": "rm -rf build",
     "rollup": "rollup -c rollup.config.mjs",
-    "build": "npm run removeBuild && tsc && vite build && npm run rollup && echo '/* /index.html 200' | cat >build/_redirects ",
+    "build": "npm run removeBuild && tsc && vite build && npm run rollup",
     "start": "node build/server/server.js",
     "buildnstart": "npm run build && npm run start",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
