@@ -1,5 +1,10 @@
 # React Portfolio
 
+[![TypeScript](https://img.shields.io/badge/TypeScript-white?logo=typescript)](https://www.typescriptlang.org/)
+[![Express](https://img.shields.io/badge/Express-black?logo=express&logoColor=yellow)](https://expressjs.com/)
+[![Vite](https://img.shields.io/badge/Vite-red?logo=vite)](https://vitejs.dev/)
+[![Mailjet](https://img.shields.io/badge/Mailjet-red?logo=mailjet)](https://www.mailjet.com/)
+
 This is a portfolio website built using React. It showcases your projects, skills, and experience in a visually appealing way.
 
 ## Features
@@ -7,7 +12,7 @@ This is a portfolio website built using React. It showcases your projects, skill
 - Responsive design
 - Project showcase with descriptions and links
 - A good about me section
-- Contact form and github links
+- Contact form and GitHub links
 
 ## Installation
 
