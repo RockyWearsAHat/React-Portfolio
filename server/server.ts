@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, Router } from 'express';
 import mailjet from 'node-mailjet';
 import dotenv from 'dotenv';
 import path from 'path';
@@ -11,11 +11,12 @@ import serverless from 'serverless-http';
 
 //EXPORTING EXPRESS FUNCTION TO BE USED IN VITE CONFIG, THIS IS NECESSARY FOR THIS SETUP
 export const app = express();
+const router = Router();
 app.use(express.json());
 
 const port = 3000;
 
-app.post('/api/contact', async (req: Request, res: Response) => {
+router.post('/contact', async (req: Request, res: Response) => {
   console.log(process.env.MAILJET_API, process.env.MAILJET_SECRET);
 
   if (!process.env.MAILJET_API || !process.env.MAILJET_SECRET) {
@@ -46,6 +47,8 @@ app.post('/api/contact', async (req: Request, res: Response) => {
 
   return res.json({ ok: true, message: 'Message sent' });
 });
+
+app.use('/api', router);
 
 //IF NOT VITE, HAVE EXPRESS SERVE STATIC FILES AND OPEN SERVER, VITE WILL OTHERWISE DO THIS
 if (!process.env['VITE']) {
