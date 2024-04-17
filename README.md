@@ -7,6 +7,8 @@
 
 This is a portfolio website built using React. It showcases projects, an about page, and a simple contact page
 
+### [Live](https://react-portfolio-5ndu.onrender.com/)
+
 ## Features
 
 - Project showcase with descriptions and links
