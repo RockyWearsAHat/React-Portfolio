@@ -5,14 +5,14 @@
 [![Vite](https://img.shields.io/badge/Vite-red?logo=vite)](https://vitejs.dev/)
 [![Mailjet](https://img.shields.io/badge/Mailjet-red?logo=mailjet)](https://www.mailjet.com/)
 
-This is a portfolio website built using React. It showcases your projects, skills, and experience in a visually appealing way.
+This is a portfolio website built using React. It showcases projects, an about page, and a simple contact page
 
 ## Features
 
-- Responsive design
 - Project showcase with descriptions and links
 - A good about me section
 - Contact form and GitHub links
+- Responsive
 
 ## Installation
 
