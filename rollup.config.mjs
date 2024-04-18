@@ -34,8 +34,8 @@ export default {
     typescript({ moduleResolution: 'bundler' }),
     resolve({ preferBuiltins: true }),
     commonjs({ ignoreDynamicRequires: true, ignore: builtinModules }),
-    copy({
-      targets: [{ src: '_redirects ', dest: 'build' }],
-    }),
+    // copy({
+    //   targets: [{ src: '_redirects ', dest: 'build' }],
+    // }),
   ],
 };
