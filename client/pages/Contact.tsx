@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import '../css/form.css';
 
 const inputBoxStyles =
-  'bg-transparent border-b-2 outline-none border-emerald-200 text-white p-1 my-2 w-[100%]';
+  'bg-transparent border-b-2 outline-none border-emerald-200 text-white p-1 my-2 w-[100%] rounded-none';
 
 const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();

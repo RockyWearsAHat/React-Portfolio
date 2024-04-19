@@ -38,7 +38,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
   }, [id]);
 
   return (
-    <div className="relative m-auto flex size-[400px] select-none transition-all duration-200 ease-in-out hover:scale-105">
+    <div className="relative mx-10 flex aspect-square h-[300px] w-[300px] select-none overflow-hidden transition-all duration-200 ease-in-out hover:scale-105 md:m-auto md:h-[400px] md:w-[400px]">
       <FaGithub
         className={`pointer-events-none absolute left-[20px] top-[20px] z-10 ${gitIconClasses ? gitIconClasses : 'text-emerald-950'}`}
       />

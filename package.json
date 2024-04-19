@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently --raw \"vite\" \"npm run tailwind\"",
+    "dev": "concurrently --raw \"vite --host\" \"npm run tailwind\"",
     "devTest": "vite",
     "removeBuild": "rm -rf build",
     "rollup": "rollup -c rollup.config.mjs",
